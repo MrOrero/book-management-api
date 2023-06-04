@@ -11,6 +11,6 @@ export class Book {
   @Column()
   author: string;
 
-  @Column()
-  genre: string;
+  @Column('text', { array: true })
+  genre: string[];
 }
