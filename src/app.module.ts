@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { BooksModule } from './books/books.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { Book } from './books/books.entity';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         username: config.get('DB_USERNAME'),
         password: config.get('DB_PASSWORD'),
         database: config.get('DB_DATABASE'),
-        entities: ['dist/**/*.entity.js'],
+        entities: [Book],
         synchronize: true,
         ssl: {
           rejectUnauthorized: false,
